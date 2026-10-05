@@ -110,6 +110,30 @@
       "version": "1.0.0"
     },
     {
+      "archive": "packages/vision-basics/1.0.0/vision-basics-1.0.0.sopkg",
+      "author": "SolarOS",
+      "category": "examples",
+      "description": "Learn classical vision step by step: blur, threshold, clean a mask, and find regions.",
+      "entry": "vision.py",
+      "id": "vision-basics",
+      "min_solaros": "4.16.0",
+      "name": "Vision Basics (Python)",
+      "requires": [
+        "gfx",
+        "psram"
+      ],
+      "runtime": "python",
+      "sha256": "aa4fa563a04991d95ac8088633ae3d3d438742d46c2eb75a233620677d10c4b8",
+      "size": 48064,
+      "tags": [
+        "image",
+        "python",
+        "tutorial",
+        "vision"
+      ],
+      "version": "1.0.0"
+    },
+    {
       "archive": "packages/snake-lua/1.0.0/snake-lua-1.0.0.sopkg",
       "author": "SolarOS",
       "category": "games",
