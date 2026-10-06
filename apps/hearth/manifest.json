@@ -1,0 +1,13 @@
+{
+  "id": "hearth",
+  "name": "Hearth",
+  "version": "1.0.0",
+  "runtime": "python",
+  "entry": "hearth.py",
+  "category": "games",
+  "description": "Self-contained, choice-driven text adventure player for SolarOS. Visit Heyvictorfrost.com/Hearth for more info.",
+  "author": "SolarOS",
+  "min_solaros": "4.4.0",
+  "tags": ["story","game","player","text adventure","tui"],
+  "requires": ["wifi"]
+}

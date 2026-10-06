@@ -1,0 +1,2 @@
+hearth python /apps/hearth/hearth.py
+hearth-gui python /apps/hearth/hearth_gui.py

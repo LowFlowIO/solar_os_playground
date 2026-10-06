@@ -110,6 +110,30 @@
       "version": "1.0.0"
     },
     {
+      "archive": "packages/hearth/1.0.0/hearth-1.0.0.sopkg",
+      "author": "SolarOS",
+      "category": "games",
+      "description": "Self-contained, choice-driven text adventure player for SolarOS. Visit Heyvictorfrost.com/Hearth for more info.",
+      "entry": "hearth.py",
+      "id": "hearth",
+      "min_solaros": "4.4.0",
+      "name": "Hearth",
+      "requires": [
+        "wifi"
+      ],
+      "runtime": "python",
+      "sha256": "43abf81081f57003463e66eae83e909ca5ef95d02f7f4512d5f0b17606048c23",
+      "size": 31977,
+      "tags": [
+        "game",
+        "player",
+        "story",
+        "text adventure",
+        "tui"
+      ],
+      "version": "1.0.0"
+    },
+    {
       "archive": "packages/snake-lua/1.0.0/snake-lua-1.0.0.sopkg",
       "author": "SolarOS",
       "category": "games",
