@@ -1,0 +1,117 @@
+GAME
+    title: "Welcome to Hearth"
+    author: "Victor Khaze"
+    id: "welcome_to_hearth"
+    revision: "1.0"
+    DatePublished: "10-03-2026"
+    Genre: "Tutorial"
+    Description: "What is this Hearth Thing!"
+    EstimatedMinutes: 5
+    ContentWarnings: ""
+    Entry: "hello"
+
+CHARACTERS
+    victor:
+        Name: "Victor"
+        ShortName: "Victor"
+        Hidden: true
+
+GLOBALS
+    player_name: ""
+
+INVENTORY
+
+SCENE hello
+    START
+        [Welcome to Hearth.
+        Your story begins here...]
+        text-left victor [Hi there! Welcome to Hearth!
+        Poke around, make choices, and have fun!]
+        LABEL first_choice
+            CHOICE
+                OPTION [Who are you?]
+                    DISABLED [You already know Victor.]
+                    ENABLE IF characters.victor.Hidden == true
+                    VAR.SET characters.victor.Hidden, false
+                    victor [I'm Victor. I created Hearth. What's your name?]
+                    VAR.READ globals.player_name, text, "Enter Your Name:"
+                    victor [Nice to meet you {globals.player_name}!]
+                    JUMP first_choice
+                OPTION [What is Hearth?]
+                    victor [Have you ever read a "Choose Your Own Adventure" book?]
+                    CHOICE
+                        OPTION [Sure!]
+                            JUMP hello.explanation
+                        OPTION [No, what's that?]
+                            victor [It's a kind of book where, instead of reading from the first page to the last page, you're sometimes given choices on what the main character should do. Depending on your choice, you'll  have to turn to a specific page to continue the story. And, there can be multiple different endings.]
+                            JUMP hello.explanation
+    LABEL explanation
+        victor [It's like that: a non-linear storytelling system.]
+        IF characters.victor.Hidden == true
+            VAR.SET characters.victor.Hidden, false
+            victor [I'm Victor, by the way: I made Hearth.]
+        LABEL wyltkm
+            victor [WOULD YOU LIKE TO KNOW MORE?]
+            CHOICE
+                OPTION [Yes]
+                    JUMP five_ws
+                OPTION [Dizzy should have lived!]
+                    victor [Eeeey, I knew someone would get the joke!]
+                    JUMP five_ws
+                OPTION [WHY ARE WE YELLING?]
+                    victor [We're not, it was a reference to a movie... Nevermind.]
+                    JUMP wyltkm
+                OPTION [No]
+                    JUMP ending
+
+SCENE five_ws
+    START
+        text-center victor [So, what do you want to know?]
+        LABEL main_choice
+            CHOICE
+                OPTION [Why did you make this?]
+                    victor [So I'm a big fan and user of the SolarOS. It's an OS for ESP32-based devices. If you ever used PDAs or old palmtop computers, it's a lot like that. There aren't many games or entertainment options written for it, so I wanted to make something. This is what I came up with! ]
+                    JUMP five_ws.main_choice
+                OPTION [How did you make this?]
+                    victor [I wrote out a detailed spec sheet for the file format. All the commands, the structure of the stories, how JUMPS should find LABELs, how stories should be formatted (like with indentation and the syntax of commands), what types of text formatting should be accepted...]
+                    victor [this took several days because I was constantly going over my logic, looking at other systems, thinking about ways to break it. It was **work**.]
+                    victor [After that, it was a long, iterative process of getting stuff working, testing it, breaking it, fixing it again...]
+                    victor [*Over and over and over....*]
+                    victor [until it stopped breaking!]
+                    JUMP five_ws.main_choice
+                OPTION [Is this running on AI?]
+                    victor [No. Stories for Hearth are completely scripted and 100% offline. No AI is needed, nor necessary. Old school stuff, right here.]
+                    text-center [Your API key has run out of tokens. Please wait until your daily token limit resets at 11:52pm or upgrade to a different plan.]
+                    victor [Just kidding. ]
+                    JUMP five_ws.main_choice
+                OPTION [So what can this system do?]
+                    JUMP feature_demo
+                OPTION [I'm ready to go now.]
+                    JUMP ending
+        CLEAR
+
+SCENE feature_demo
+    START
+        victor [Hooo-boy, it can do A LOT.]
+        victor [Obviously it supports branching dialogue, choices, and the ability to jump from section to section.]
+        victor [I can take input from the player and use it in dialogue.]
+        IF globals.player_name == ""
+            victor [You actually bypassed a branch of dialogue where I would have asked for your name.]
+        ELSE
+            victor [You remember that, right {globals.player_name}?]
+        victor [I can write, read, copy, and delete variables. I can also enable or disable choice options depending on the value of variables.]
+        CHOICE
+            OPTION [WHO ARE YOU?!]
+                ENABLE IF characters.victor.Hidden == true
+                DISABLED [This option is disabled if you don't know my name, which is impossible since I told you.]
+                victor [You'll never see this.]
+            OPTION [Nifty!]
+                victor [Right?!]
+        victor [Technically, this game engine is Turing-complete. Which is ridiculous. ]
+        JUMP five_ws.main_choice
+
+SCENE ending
+    START
+        victor [Well, thanks for coming by! I have a couple short sample stories you can play, but please jump into the Studio and try your hand at making one yourself!
+        I'd **love** to see what you come up with!]
+        END
