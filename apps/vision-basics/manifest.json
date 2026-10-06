@@ -1,0 +1,13 @@
+{
+  "id": "vision-basics",
+  "name": "Vision Basics (Python)",
+  "version": "1.0.0",
+  "runtime": "python",
+  "entry": "vision.py",
+  "category": "examples",
+  "description": "Learn classical vision step by step: blur, threshold, clean a mask, and find regions.",
+  "author": "SolarOS",
+  "min_solaros": "4.16.0",
+  "tags": ["vision", "image", "python", "tutorial"],
+  "requires": ["gfx", "psram"]
+}
